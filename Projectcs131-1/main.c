@@ -54,7 +54,6 @@ int main(void)
 	double moneyTendered;
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase:");
-	purchaseAmount = scanf();
 	getchar();
 	return EXIT_SUCCESS;
 }
