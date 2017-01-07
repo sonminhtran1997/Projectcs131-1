@@ -50,11 +50,13 @@
 
 int main(void)
 {
-	double purchaseAmount;
-	double moneyTendered;
-	int test;
+	double purchaseAmount = 0;
+	double moneyTendered = 0;
 	printf("Welcome to Change Counter by Son Tran!\n");
-	printf("Please enter the total amount of purchase:");
+	printf("Please enter the total amount of purchase: ");
+	scanf("%lf", &purchaseAmount);
+	printf("%.2lf\n", purchaseAmount);
+	getchar();
 	getchar();
 	return EXIT_SUCCESS;
 }
