@@ -62,7 +62,6 @@ int main(void)
 	printf("$%.2lf\n", moneyTendered);
 	change = moneyTendered - purchaseAmount;
 	printf("Your change is: $%.2lf\n", change);
-	printf("test");
 	getchar();
 	getchar();
 	return EXIT_SUCCESS;
