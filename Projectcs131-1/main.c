@@ -15,7 +15,7 @@
 #define ONE 1;
 #define TOOBIG 9999999999; 
 //-------------------------------------------------------------------------------------------
-//	Function:
+//	Function:2
 //
 // Title:
 //
@@ -82,11 +82,11 @@ int main(void)
 	while (getchar() != '\n');
 	while (invalidTend)
 	{
-		printf("Invalid t, total amount of purchase should be number from 0 to 9999999999"
+		printf("Invalid t, total amount of tender should be number from 0 to 9999999999"
 			", please enter the total purchase again: $");
-		scanPur = scanf("%lf", &purchaseAmount);
+		scanTend = scanf("%lf", &moneyTendered);
 		while (getchar() != '\n');
-		invalidPur = scanPur != ONE & purchaseAmount < TOOBIG;
+		invalidTend = scanTend != ONE & moneyTendered < TOOBIG;
 	}
 	printf("$%.2lf\n", moneyTendered);
 	change = moneyTendered - purchaseAmount;
