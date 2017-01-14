@@ -58,24 +58,39 @@ int main(void)
 	double moneyTendered = 0;
 	double change = 0;
 	_Bool invalidPur = false;
-	_Bool invaliddTend = true;
+	_Bool invalidTend = true;
 	int scanPur = 0;
+	int scanTend = 0;
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
 	scanPur = scanf("%lf", &purchaseAmount);
+	invalidPur = scanPur != ONE & purchaseAmount > TOOBIG;
 	while (getchar() != '\n');
 	while (invalidPur)
 	{
-		//printf("Invalid t, total amount of purchase should be number from 0 to 9999999999, please enter the ")
+		printf("Invalid t, total amount of purchase should be number from 0 to 9999999999"
+			", please enter the total purchase again: $");
+		scanPur = scanf("%lf", &purchaseAmount);
+		while (getchar() != '\n');
+		invalidPur = scanPur != ONE & purchaseAmount < TOOBIG;
 	}
-	invalidPur = scanPur != ONE & purchaseAmount > TOOBIG;
 	printf("$%.2lf\n", purchaseAmount);
+
 	printf("Please enter amount of money tendered: $");
-	scanf("%lf", &moneyTendered);
+	scanTend = scanf("%lf", &moneyTendered);
+	invalidTend = scanTend != ONE & moneyTendered > TOOBIG;
+	while (getchar() != '\n');
+	while (invalidTend)
+	{
+		printf("Invalid t, total amount of purchase should be number from 0 to 9999999999"
+			", please enter the total purchase again: $");
+		scanPur = scanf("%lf", &purchaseAmount);
+		while (getchar() != '\n');
+		invalidPur = scanPur != ONE & purchaseAmount < TOOBIG;
+	}
 	printf("$%.2lf\n", moneyTendered);
 	change = moneyTendered - purchaseAmount;
 	printf("Your change is: $%.2lf\n", change);
-	getchar();
 	getchar();
 	return EXIT_SUCCESS;
 }
