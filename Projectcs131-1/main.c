@@ -80,7 +80,7 @@ int main(void)
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
 	scanPur = scanf("%lf", &purchaseAmount);
-	invalidPur = scanPur != ONE & purchaseAmount > TOOBIG;
+	invalidPur = scanPur != ONE | purchaseAmount > TOOBIG;
 	while (getchar() != '\n');
 	while (invalidPur)
 	{
@@ -88,7 +88,7 @@ int main(void)
 			", please enter the total purchase again: $");
 		scanPur = scanf("%lf", &purchaseAmount);
 		while (getchar() != '\n');
-		invalidPur = scanPur != ONE & purchaseAmount < TOOBIG;
+		invalidPur = scanPur != ONE | purchaseAmount > TOOBIG;
 	}
 	purchaseAmount = floor(purchaseAmount *roundNumber + numberForRounding)
 		/ roundNumber;
@@ -96,7 +96,7 @@ int main(void)
 
 	printf("Please enter amount of money tendered: $");
 	scanTend = scanf("%lf", &moneyTendered);
-	invalidTend = scanTend != ONE & moneyTendered > TOOBIG;
+	invalidTend = scanTend != ONE | moneyTendered > TOOBIG;
 	while (getchar() != '\n');
 	while (invalidTend)
 	{
@@ -104,7 +104,7 @@ int main(void)
 			", please enter the total purchase again: $");
 		scanTend = scanf("%lf", &moneyTendered);
 		while (getchar() != '\n');
-		invalidTend = scanTend != ONE & moneyTendered < TOOBIG;
+		invalidTend = scanTend != ONE | moneyTendered > TOOBIG;
 	}
 	moneyTendered = floor(moneyTendered * roundNumber + numberForRounding)
 		/ roundNumber;
@@ -126,8 +126,6 @@ int main(void)
 	tempChangeInCent -= fiveBill * CENTS_IN_FIVEDOLLARS;
 	oneBill = tempChangeInCent / CENTS_IN_ONEDOLLARS;
 	tempChangeInCent -= oneBill * CENTS_IN_ONEDOLLARS;
-	tenBill = tempChangeInCent / CENTS_IN_TENDOLLARS;
-	tempChangeInCent -= tenBill * CENTS_IN_TENDOLLARS;
 	quarterCoin = tempChangeInCent / CENTS_IN_QUARTER;
 	tempChangeInCent -= quarterCoin * CENTS_IN_QUARTER;
 	dimeCoin = tempChangeInCent / CENTS_IN_DIME;
@@ -144,7 +142,7 @@ int main(void)
 	printf("Nickles  : %d\n", nickleCoin);
 	printf("Pennies  : %d\n", pennyCoin);
 	printf("-------------------------------------------------\n");
-	printf("Thank you for using Change Counter.\nHave a nice day!");
+	printf("Thank you for using Change Counter.\nHave a nice day!\n");
 	while (getchar() != '\n');
 	return EXIT_SUCCESS;
 }
