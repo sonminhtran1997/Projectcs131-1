@@ -90,7 +90,7 @@ int main(void)
 		while (getchar() != '\n');
 		invalidPur = scanPur != ONE | purchaseAmount > TOOBIG;
 	}
-	purchaseAmount = floor(purchaseAmount *roundNumber + numberForRounding)
+	purchaseAmount = floor(purchaseAmount * roundNumber + numberForRounding)
 		/ roundNumber;
 	printf("$%.2lf\n", purchaseAmount);
 
