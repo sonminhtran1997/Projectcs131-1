@@ -1,7 +1,7 @@
 //-------------------------------------------------------------------------------------------
-//	File: 
+//	File:		changeCounter.c
 //
-// Functions:
+// Functions:	main(void)	
 //
 //-------------------------------------------------------------------------------------------
 #include <stdio.h>
@@ -19,12 +19,13 @@
 #define ZERO 0
 #define ONE 1
 #define TOOBIG 9999999999 
-//-------------------------------------------------------------------------------------------
-//	Function:2
+//----------------------------------------------------------------------------
+//	Function:		main(void)		
 //
-// Title:
+// Title:			Change Counter
 //
-//	Description: 
+//	Description:	The program will takes in a specific amount of dollars
+//										
 // 
 //
 // Programmer: 
@@ -59,16 +60,16 @@
 
 int main(void)
 {
-	double purchaseAmount = 0;
-	double moneyTendered = 0;
-	double change = 0;
+	long double purchaseAmount = 0;
+	long double moneyTendered = 0;
+	long double change = 0;
 	_Bool invalidPur = false;
 	_Bool invalidTend = true;
 	int scanPur = 0;
 	int scanTend = 0;
 	int roundNumber = 100;
 	int numberForRounding = 0.5;
-	int twentyBill = 0;
+	unsigned long long twentyBill = 0;
 	int tenBill = 0;
 	int fiveBill = 0;
 	int oneBill = 0;
@@ -76,19 +77,19 @@ int main(void)
 	int dimeCoin = 0;
 	int nickleCoin = 0;
 	int pennyCoin = 0;
-	int tempChangeInCent = 0;
+	long long tempChangeInCent = 0;
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
 	scanPur = scanf("%lf", &purchaseAmount);
-	invalidPur = scanPur != ONE | purchaseAmount > TOOBIG;
+	invalidPur = scanPur != ONE;
 	while (getchar() != '\n');
 	while (invalidPur)
 	{
-		printf("Invalid t, total amount of purchase should be number from 0 to 9999999999"
-			", please enter the total purchase again: $");
+		printf("Invalid purchase amount, input should be number, " 
+			"please enter again: $");
 		scanPur = scanf("%lf", &purchaseAmount);
 		while (getchar() != '\n');
-		invalidPur = scanPur != ONE | purchaseAmount > TOOBIG;
+		invalidPur = scanPur != ONE;
 	}
 	purchaseAmount = floor(purchaseAmount * roundNumber + numberForRounding)
 		/ roundNumber;
@@ -96,15 +97,15 @@ int main(void)
 
 	printf("Please enter amount of money tendered: $");
 	scanTend = scanf("%lf", &moneyTendered);
-	invalidTend = scanTend != ONE | moneyTendered > TOOBIG;
+	invalidTend = scanTend != ONE;
 	while (getchar() != '\n');
 	while (invalidTend)
 	{
-		printf("Invalid t, total amount of tender should be number from 0 to 9999999999"
-			", please enter the total purchase again: $");
+		printf("Invalid tender amount, input should be number, "
+			"please enter again: $");
 		scanTend = scanf("%lf", &moneyTendered);
 		while (getchar() != '\n');
-		invalidTend = scanTend != ONE | moneyTendered > TOOBIG;
+		invalidTend = scanTend != ONE;
 	}
 	moneyTendered = floor(moneyTendered * roundNumber + numberForRounding)
 		/ roundNumber;
