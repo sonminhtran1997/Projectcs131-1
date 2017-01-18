@@ -70,16 +70,16 @@
 int main(void)
 {
 	//Declare and initialize all the variable
-	long double purchaseAmount = 0;
-	long double moneyTendered = 0;
-	long double change = 0;
+	long double purchaseAmount = 0L;
+	long double moneyTendered = 0L;
+	long double change = 0L;
 	_Bool invalidPur = false;
 	_Bool invalidTend = true;
 	int scanPur = 0;
 	int scanTend = 0;
 	int roundNumber = 100;
 	int numberForRounding = 0.5;
-	unsigned long long twentyBill = 0;
+	unsigned long long twentyBill = 0LL;
 	int tenBill = 0;
 	int fiveBill = 0;
 	int oneBill = 0;
@@ -87,12 +87,12 @@ int main(void)
 	int dimeCoin = 0;
 	int nickleCoin = 0;
 	int pennyCoin = 0;
-	long long tempChangeInCent = 0;
+	long long tempChangeInCent = 0LL;
 	//Print out to command line and ask for input of purchase and tender
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
 	//read in amount of purchase
-	scanPur = scanf("%lf", &purchaseAmount);
+		scanPur = scanf("%lf", &purchaseAmount);
 	//check for the input type
 	invalidPur = scanPur != ONE;
 	//Continue ask to enter input until it get correct type
@@ -123,12 +123,12 @@ int main(void)
 		scanTend = scanf("%lf", &moneyTendered);
 		while (getchar() != '\n');
 		invalidTend = scanTend != ONE;
+	}
 	//round of to two number after the point of purchase amount
 	moneyTendered = floor(moneyTendered * roundNumber + numberForRounding)
 		/ roundNumber;
 	printf("$%.2lf\n", moneyTendered);
 	printf("\n");
-	}
 	//calculate change amount
 	change = moneyTendered - purchaseAmount;
 	printf("Your change is: $%.2lf\n", change);
