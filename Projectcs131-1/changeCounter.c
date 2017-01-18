@@ -1,7 +1,7 @@
 //-------------------------------------------------------------------------------------------
-//	File:		changeCounter.c
+// File:			changeCounter.c
 //
-// Functions:	main(void)	
+// Functions:		main(void)	
 //
 //-------------------------------------------------------------------------------------------
 #include <stdio.h>
@@ -20,46 +20,56 @@
 #define ONE 1
 #define TOOBIG 9999999999 
 //----------------------------------------------------------------------------
-//	Function:		main(void)		
+// Function:		main(void)		
 //
 // Title:			Change Counter
 //
-//	Description:	The program will takes in a specific amount of dollars
-//										
+// Description:		The program will takes in a specific amount of dollars
+//					and the amount of tender. After that it will give the
+//					list amount of change in different type of bills
+//									
+// Programmer:		Son Minh Tran
+// 
+// Date:			01/17/2017
+
+// Version:			1.0
+//
+// Environment:		HP Elitebook 8570P 
+//					Hardware: 16GB RAM
+//							  Intel(R) Core(TM) i5-3320M 
+//					Software: OS: MS Windows 10 Professional 64-bit
+//
+// Input:			The amount of dollar for a purchase
+//					The amount of money tendered
+// Output:			Give out the amount of change 
+//					Amount of twenty dollars
+//					Amount of ten dollars
+//					Amount of five dollars
+//					Amount of one dollar
+//					Amount of quarters
+//					Amount of dimes
+//					Amount of nickels
+//					Amount of pennies
+//
+// Parameters:		void
 // 
 //
-// Programmer: 
-// 
-// Date:
-// Version: 
-//
-//	Environment:
-//                     Hardware:
-//
-//                      Software:
-//
-//	Input:
-//
-//	Output: 
-//
-//	Parameters:
-// 
-//
-// Returns:
+// Returns:			EXIT_SUCCESS for successful completion
 // 
 // 
-//	Called By:
+// Called By:		None
 // 
-//	Calls: 
+// Calls:			None
 //
-//	History Log:
-//
-// 
+// History Log:		Commit github on 05/01/2017: Initialize the project
+//					Commit github on 07/01/2017: Finished finding change
+//					Commit github on 17/01/2017: Change to deal with big number
 //----------------------------------------------------------------------------
 
 
 int main(void)
 {
+	//Declare and initialize all the variable
 	long double purchaseAmount = 0;
 	long double moneyTendered = 0;
 	long double change = 0;
@@ -78,10 +88,14 @@ int main(void)
 	int nickleCoin = 0;
 	int pennyCoin = 0;
 	long long tempChangeInCent = 0;
+	//Print out to command line and ask for input of purchase and tender
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
+	//read in amount of purchase
 	scanPur = scanf("%lf", &purchaseAmount);
+	//check for the input type
 	invalidPur = scanPur != ONE;
+	//Continue ask to enter input until it get correct type
 	while (getchar() != '\n');
 	while (invalidPur)
 	{
@@ -91,13 +105,16 @@ int main(void)
 		while (getchar() != '\n');
 		invalidPur = scanPur != ONE;
 	}
+	//round up to two number after the point of purchase amount
 	purchaseAmount = floor(purchaseAmount * roundNumber + numberForRounding)
 		/ roundNumber;
 	printf("$%.2lf\n", purchaseAmount);
-
+	//ask and read in tender amount
 	printf("Please enter amount of money tendered: $");
 	scanTend = scanf("%lf", &moneyTendered);
+	//check for input type
 	invalidTend = scanTend != ONE;
+	//Continue ask to enter input until it get correct type
 	while (getchar() != '\n');
 	while (invalidTend)
 	{
@@ -106,18 +123,22 @@ int main(void)
 		scanTend = scanf("%lf", &moneyTendered);
 		while (getchar() != '\n');
 		invalidTend = scanTend != ONE;
-	}
+	//round of to two number after the point of purchase amount
 	moneyTendered = floor(moneyTendered * roundNumber + numberForRounding)
 		/ roundNumber;
 	printf("$%.2lf\n", moneyTendered);
 	printf("\n");
+	}
+	//calculate change amount
 	change = moneyTendered - purchaseAmount;
 	printf("Your change is: $%.2lf\n", change);
 	printf("\n");
+	//check if the user is still owing or not
 	if (change < ZERO)
 	{
 		printf("Change still owing\n");
 	}
+	//calculate amount of all types of bills
 	tempChangeInCent = fabs(change) * roundNumber;
 	twentyBill = tempChangeInCent / CENTS_IN_TWENTYDOLLARS;
 	tempChangeInCent -= twentyBill * CENTS_IN_TWENTYDOLLARS;
@@ -134,6 +155,7 @@ int main(void)
 	nickleCoin = tempChangeInCent / CENTS_IN_NICKLE;
 	tempChangeInCent -= nickleCoin * CENTS_IN_NICKLE;
 	pennyCoin = tempChangeInCent / CENTS_IN_PENNY;
+	//print out amounts of all type of bills
 	printf("Twenties : %d\n", twentyBill);
 	printf("Tens     : %d\n", tenBill);
 	printf("Fives    : %d\n", fiveBill);
@@ -144,6 +166,8 @@ int main(void)
 	printf("Pennies  : %d\n", pennyCoin);
 	printf("-------------------------------------------------\n");
 	printf("Thank you for using Change Counter.\nHave a nice day!\n");
+	//clean out all the buffer
 	while (getchar() != '\n');
+	//return successful message to the program
 	return EXIT_SUCCESS;
 }
