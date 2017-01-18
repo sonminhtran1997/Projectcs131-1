@@ -74,11 +74,11 @@ int main(void)
 	long double moneyTendered = 0L;
 	long double change = 0L;
 	_Bool invalidPur = false;
-	_Bool invalidTend = true;
+	_Bool invalidTend = false;
 	int scanPur = 0;
 	int scanTend = 0;
 	int roundNumber = 100;
-	int numberForRounding = 0.5;
+	double numberForRounding = 0.5;
 	unsigned long long twentyBill = 0LL;
 	int tenBill = 0;
 	int fiveBill = 0;
@@ -92,14 +92,14 @@ int main(void)
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
 	//read in amount of purchase
-		scanPur = scanf("%lf", &purchaseAmount);
+	scanPur = scanf("%lf", &purchaseAmount);
 	//check for the input type
 	invalidPur = scanPur != ONE;
 	//Continue ask to enter input until it get correct type
 	while (getchar() != '\n');
 	while (invalidPur)
 	{
-		printf("Invalid purchase amount, input should be number, " 
+		printf("Invalid purchase amount, input should be number, "
 			"please enter again: $");
 		scanPur = scanf("%lf", &purchaseAmount);
 		while (getchar() != '\n');
@@ -131,6 +131,7 @@ int main(void)
 	printf("\n");
 	//calculate change amount
 	change = moneyTendered - purchaseAmount;
+	tempChangeInCent = floor(change * roundNumber + numberForRounding);
 	printf("Your change is: $%.2lf\n", change);
 	printf("\n");
 	//check if the user is still owing or not
@@ -139,7 +140,7 @@ int main(void)
 		printf("Change still owing\n");
 	}
 	//calculate amount of all types of bills
-	tempChangeInCent = fabs(change) * roundNumber;
+	tempChangeInCent = fabs(tempChangeInCent);
 	twentyBill = tempChangeInCent / CENTS_IN_TWENTYDOLLARS;
 	tempChangeInCent -= twentyBill * CENTS_IN_TWENTYDOLLARS;
 	tenBill = tempChangeInCent / CENTS_IN_TENDOLLARS;
