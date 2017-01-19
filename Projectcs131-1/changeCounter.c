@@ -70,16 +70,16 @@
 int main(void)
 {
 	//Declare and initialize all the variable
-	long double purchaseAmount = 0L;
-	long double moneyTendered = 0L;
-	long double change = 0L;
+	long double purchaseAmount = 0.0L;
+	long double moneyTendered = 0.0L;
+	long double change = 0.0;
 	_Bool invalidPur = false;
 	_Bool invalidTend = false;
 	int scanPur = 0;
 	int scanTend = 0;
 	int roundNumber = 100;
 	double numberForRounding = 0.5;
-	unsigned long long twentyBill = 0LL;
+	unsigned long long twentyBill = 0ull;
 	int tenBill = 0;
 	int fiveBill = 0;
 	int oneBill = 0;
@@ -87,7 +87,7 @@ int main(void)
 	int dimeCoin = 0;
 	int nickleCoin = 0;
 	int pennyCoin = 0;
-	long long tempChangeInCent = 0LL;
+	long long tempChangeInCent = 0ll;
 	//Print out to command line and ask for input of purchase and tender
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
