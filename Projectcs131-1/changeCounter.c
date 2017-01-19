@@ -92,7 +92,7 @@ int main(void)
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
 	//read in amount of purchase
-	scanPur = scanf("%lf", &purchaseAmount);
+	scanPur = scanf("%Lf", &purchaseAmount);
 	//check for the input type
 	invalidPur = scanPur != ONE;
 	//Continue ask to enter input until it get correct type
@@ -101,17 +101,17 @@ int main(void)
 	{
 		printf("Invalid purchase amount, input should be number, "
 			"please enter again: $");
-		scanPur = scanf("%lf", &purchaseAmount);
+		scanPur = scanf("%Lf", &purchaseAmount);
 		while (getchar() != '\n');
 		invalidPur = scanPur != ONE;
 	}
 	//round up to two number after the point of purchase amount
 	purchaseAmount = floor(purchaseAmount * roundNumber + numberForRounding)
 		/ roundNumber;
-	printf("$%.2lf\n", purchaseAmount);
+	printf("$%.2Lf\n", purchaseAmount);
 	//ask and read in tender amount
 	printf("Please enter amount of money tendered: $");
-	scanTend = scanf("%lf", &moneyTendered);
+	scanTend = scanf("%Lf", &moneyTendered);
 	//check for input type
 	invalidTend = scanTend != ONE;
 	//Continue ask to enter input until it get correct type
@@ -120,19 +120,19 @@ int main(void)
 	{
 		printf("Invalid tender amount, input should be number, "
 			"please enter again: $");
-		scanTend = scanf("%lf", &moneyTendered);
+		scanTend = scanf("%Lf", &moneyTendered);
 		while (getchar() != '\n');
 		invalidTend = scanTend != ONE;
 	}
 	//round of to two number after the point of purchase amount
 	moneyTendered = floor(moneyTendered * roundNumber + numberForRounding)
 		/ roundNumber;
-	printf("$%.2lf\n", moneyTendered);
+	printf("$%.2Lf\n", moneyTendered);
 	printf("\n");
 	//calculate change amount
 	change = moneyTendered - purchaseAmount;
 	tempChangeInCent = floor(change * roundNumber + numberForRounding);
-	printf("Your change is: $%.2lf\n", change);
+	printf("Your change is: $%.2Lf\n", change);
 	printf("\n");
 	//check if the user is still owing or not
 	if (change < ZERO)
@@ -157,7 +157,7 @@ int main(void)
 	tempChangeInCent -= nickleCoin * CENTS_IN_NICKLE;
 	pennyCoin = tempChangeInCent / CENTS_IN_PENNY;
 	//print out amounts of all type of bills
-	printf("Twenties : %d\n", twentyBill);
+	printf("Twenties : %llu\n", twentyBill);
 	printf("Tens     : %d\n", tenBill);
 	printf("Fives    : %d\n", fiveBill);
 	printf("Ones     : %d\n", oneBill);
