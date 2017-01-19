@@ -35,7 +35,8 @@
 // Version:			1.0
 //
 // Environment:		HP Elitebook 8570P 
-//					Hardware: 16GB RAM
+//					Hardware: 8GB
+B RAM
 //							  Intel(R) Core(TM) i5-3320M 
 //					Software: OS: MS Windows 10 Professional 64-bit
 //
@@ -79,7 +80,7 @@ int main(void)
 	int scanTend = 0;
 	int roundNumber = 100;
 	double numberForRounding = 0.5;
-	unsigned long long twentyBill = 0ull;
+	unsigned long long twentyBill = 0llu;
 	int tenBill = 0;
 	int fiveBill = 0;
 	int oneBill = 0;
