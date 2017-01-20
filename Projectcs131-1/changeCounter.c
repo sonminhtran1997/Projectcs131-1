@@ -35,7 +35,7 @@
 // Version:			1.0
 //
 // Environment:		HP Elitebook 8570P 
-//					Hardware: 16GB RAM
+//					Hardware: 8GB
 //							  Intel(R) Core(TM) i5-3320M 
 //					Software: OS: MS Windows 10 Professional 64-bit
 //
@@ -79,7 +79,7 @@ int main(void)
 	int scanTend = 0;
 	int roundNumber = 100;
 	double numberForRounding = 0.5;
-	unsigned long long twentyBill = 0ull;
+	unsigned long long twentyBill = 0llu;
 	int tenBill = 0;
 	int fiveBill = 0;
 	int oneBill = 0;
@@ -142,19 +142,19 @@ int main(void)
 	//calculate amount of all types of bills
 	tempChangeInCent = fabs(tempChangeInCent);
 	twentyBill = tempChangeInCent / CENTS_IN_TWENTYDOLLARS;
-	tempChangeInCent -= twentyBill * CENTS_IN_TWENTYDOLLARS;
+	tempChangeInCent %= CENTS_IN_TWENTYDOLLARS;
 	tenBill = tempChangeInCent / CENTS_IN_TENDOLLARS;
-	tempChangeInCent -= tenBill * CENTS_IN_TENDOLLARS;
+	tempChangeInCent %= CENTS_IN_TENDOLLARS;
 	fiveBill = tempChangeInCent / CENTS_IN_FIVEDOLLARS;
-	tempChangeInCent -= fiveBill * CENTS_IN_FIVEDOLLARS;
+	tempChangeInCent %= CENTS_IN_FIVEDOLLARS;
 	oneBill = tempChangeInCent / CENTS_IN_ONEDOLLARS;
-	tempChangeInCent -= oneBill * CENTS_IN_ONEDOLLARS;
+	tempChangeInCent %= CENTS_IN_ONEDOLLARS;
 	quarterCoin = tempChangeInCent / CENTS_IN_QUARTER;
-	tempChangeInCent -= quarterCoin * CENTS_IN_QUARTER;
+	tempChangeInCent %= CENTS_IN_QUARTER;
 	dimeCoin = tempChangeInCent / CENTS_IN_DIME;
-	tempChangeInCent -= dimeCoin * CENTS_IN_DIME;
+	tempChangeInCent %= CENTS_IN_DIME;
 	nickleCoin = tempChangeInCent / CENTS_IN_NICKLE;
-	tempChangeInCent -= nickleCoin * CENTS_IN_NICKLE;
+	tempChangeInCent %= CENTS_IN_NICKLE;
 	pennyCoin = tempChangeInCent / CENTS_IN_PENNY;
 	//print out amounts of all type of bills
 	printf("Twenties : %llu\n", twentyBill);
