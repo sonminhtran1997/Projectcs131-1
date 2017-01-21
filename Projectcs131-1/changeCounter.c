@@ -1,9 +1,9 @@
-//-------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 // File:			changeCounter.c
 //
 // Functions:		main(void)	
 //
-//-------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -63,7 +63,8 @@
 //
 // History Log:		Commit github on 05/01/2017: Initialize the project
 //					Commit github on 07/01/2017: Finished finding change
-//					Commit github on 17/01/2017: Change to deal with big number
+//					Commit github on 17/01/2017: Change to deal with 
+//					big number
 //----------------------------------------------------------------------------
 
 
@@ -87,7 +88,7 @@ int main(void)
 	int dimeCoin = 0;
 	int nickleCoin = 0;
 	int pennyCoin = 0;
-	long long tempChangeInCent = 0ll;
+	unsigned long long tempChangeInCent = 0ll;
 	//Print out to command line and ask for input of purchase and tender
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
@@ -131,6 +132,7 @@ int main(void)
 	printf("\n");
 	//calculate change amount
 	change = moneyTendered - purchaseAmount;
+	tempChangeInCent = fabs(tempChangeInCent);
 	tempChangeInCent = floor(change * roundNumber + numberForRounding);
 	printf("Your change is: $%.2Lf\n", change);
 	printf("\n");
@@ -140,7 +142,6 @@ int main(void)
 		printf("Change still owing\n");
 	}
 	//calculate amount of all types of bills
-	tempChangeInCent = fabs(tempChangeInCent);
 	twentyBill = tempChangeInCent / CENTS_IN_TWENTYDOLLARS;
 	tempChangeInCent %= CENTS_IN_TWENTYDOLLARS;
 	tenBill = tempChangeInCent / CENTS_IN_TENDOLLARS;
