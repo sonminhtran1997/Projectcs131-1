@@ -88,7 +88,7 @@ int main(void)
 	int dimeCoin = 0;
 	int nickleCoin = 0;
 	int pennyCoin = 0;
-	unsigned long long tempChangeInCent = 0ll;
+	unsigned long long tempChangeInCent = 0llu;
 	//Print out to command line and ask for input of purchase and tender
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
@@ -132,10 +132,10 @@ int main(void)
 	printf("\n");
 	//calculate change amount
 	change = moneyTendered - purchaseAmount;
-	tempChangeInCent = fabs(tempChangeInCent);
-	tempChangeInCent = floor(change * roundNumber + numberForRounding);
 	printf("Your change is: $%.2Lf\n", change);
 	printf("\n");
+	change = floor(change * roundNumber + numberForRounding);
+	tempChangeInCent = fabs(change);
 	//check if the user is still owing or not
 	if (change < ZERO)
 	{
