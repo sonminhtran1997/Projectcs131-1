@@ -86,7 +86,7 @@ int main(void)
 	int oneBill = 0;
 	int quarterCoin = 0;
 	int dimeCoin = 0;
-	int nickleCoin = 0;
+	int nickelCoin = 0;
 	int pennyCoin = 0;
 	unsigned long long tempChangeInCent = 0llu;
 	//Print out to command line and ask for input of purchase and tender
@@ -154,7 +154,7 @@ int main(void)
 	tempChangeInCent %= CENTS_IN_QUARTER;
 	dimeCoin = tempChangeInCent / CENTS_IN_DIME;
 	tempChangeInCent %= CENTS_IN_DIME;
-	nickleCoin = tempChangeInCent / CENTS_IN_NICKLE;
+	nickelCoin = tempChangeInCent / CENTS_IN_NICKLE;
 	tempChangeInCent %= CENTS_IN_NICKLE;
 	pennyCoin = tempChangeInCent / CENTS_IN_PENNY;
 	//print out amounts of all type of bills
@@ -164,7 +164,7 @@ int main(void)
 	printf("Ones     : %d\n", oneBill);
 	printf("Quarters : %d\n", quarterCoin);
 	printf("Dimes    : %d\n", dimeCoin);
-	printf("Nickles  : %d\n", nickleCoin);
+	printf("Nickels  : %d\n", nickelCoin);
 	printf("Pennies  : %d\n", pennyCoin);
 	printf("-------------------------------------------------\n");
 	printf("Thank you for using Change Counter.\nHave a nice day!\n");
