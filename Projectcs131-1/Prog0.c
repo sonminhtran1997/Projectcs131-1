@@ -61,10 +61,11 @@
 // 
 // Calls:			None
 //
-// History Log:		Commit github on 05/01/2017: Initialize the project
-//					Commit github on 07/01/2017: Finished finding change
-//					Commit github on 17/01/2017: Change to deal with 
+// History Log:		Commit github on 01/05/2017: Initialize the project
+//					Commit github on 01/07/2017: Finished finding change
+//					Commit github on 01/17/2017: Change to deal with 
 //					big number
+//					Commit github on 01/22/2017: release version 1.0
 //----------------------------------------------------------------------------
 
 
