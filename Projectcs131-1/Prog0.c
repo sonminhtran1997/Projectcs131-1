@@ -81,7 +81,7 @@ int main(void)
 	int scanTend = 0;
 	int roundNumber = 100;
 	double numberForRounding = 0.5;
-	unsigned long long twentyBill = 0llu;
+	unsigned long long twentyBill = 0ULL;
 	int tenBill = 0;
 	int fiveBill = 0;
 	int oneBill = 0;
@@ -89,7 +89,7 @@ int main(void)
 	int dimeCoin = 0;
 	int nickelCoin = 0;
 	int pennyCoin = 0;
-	unsigned long long tempChangeInCent = 0llu;
+	unsigned long long tempChangeInCent = 0ULL;
 	//Print out to command line and ask for input of purchase and tender
 	printf("Welcome to Change Counter by Son Tran!\n");
 	printf("Please enter the total amount of purchase: $");
